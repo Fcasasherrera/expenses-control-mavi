@@ -1,0 +1,114 @@
+@import "tailwindcss";
+
+@theme {
+  /* Defining Plus Jakarta Sans as the base font */
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer components {
+  .sap-input {
+    /* Responsive Text: 15px on mobile, 17px on desktop (lg: breakpoint) */
+    @apply border-2 border-gray-200 rounded-xl px-4 py-2.5 w-full 
+           bg-white text-slate-900 transition-all duration-200 outline-none font-semibold
+           text-[15px] lg:text-[17px];
+  }
+
+  .sap-input:focus {
+    @apply border-blue-500 ring-4 ring-blue-50 shadow-md scale-[1.01];
+  }
+
+  .sap-input:disabled {
+    @apply bg-slate-50 border-slate-100 cursor-not-allowed opacity-70 text-slate-400 font-normal;
+  }
+  
+  .label-sap {
+    /* Responsive Label: 11px on mobile, 12.5px on desktop */
+    @apply text-[11px] lg:text-[12.5px] font-black text-slate-500 uppercase mb-2 block tracking-[0.12em];
+  }
+}
+
+:root {
+  --color-sap-blue: #0054af;
+  font-family: var(--font-sans);
+  
+  /* Global Base Font Size Responsive */
+  font-size: 15px; 
+}
+
+/* Subimos la base global a 17px cuando la pantalla sea grande */
+@media (min-width: 1024px) {
+  :root {
+    font-size: 17px;
+  }
+}
+
+:root {
+  color: #1e293b; 
+  background-color: #f3f4f6;
+  color-scheme: light;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* --- Global Transitions --- */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+/* --- List Transitions --- */
+.list-enter-active,
+.list-leave-active {
+  transition: all 0.4s ease;
+}
+
+.list-enter-from {
+  opacity: 0;
+  transform: translateX(-20px);
+}
+
+.list-leave-to {
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+/* --- Global Scrollbar --- */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-300 rounded-full border-2 border-transparent bg-clip-padding hover:bg-slate-400;
+}
+
+/* Basic Layout resets */
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  line-height: 1.6; /* Un 2.0 era demasiado aire, 1.6 es ideal para formularios */
+}
+
+#app {
+  width: 100%;
+  min-height: 100vh;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #1e293b;
+    background-color: #f3f4f6;
+  }
+}
