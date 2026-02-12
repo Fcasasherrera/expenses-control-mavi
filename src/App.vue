@@ -1,11 +1,11 @@
 <script setup lang="ts">
-// No necesitamos lógica pesada aquí, ya que el Router se encarga de todo.
-// Pero aquí podrías meter un Navbar global o un Footer si el proyecto crece.
+import ToastContainer from './components/ToastContainer.vue'
+
 </script>
 
 <template>
   <div class="main-layout font-['Plus Jakarta Sans'] antialiased">
-    
+    <ToastContainer />
     <router-view v-slot="{ Component }">
       <transition name="fade" mode="out-in">
         <component :is="Component" />
